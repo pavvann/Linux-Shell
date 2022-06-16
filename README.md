@@ -26,4 +26,4 @@ You are now in the shell
 
 ## Author
 
-**Pawan Bajaj** [pavvann](https://github.com/pavvann)
+**Pawan Bajaj ->** [pavvann](https://github.com/pavvann)
