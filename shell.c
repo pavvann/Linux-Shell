@@ -8,6 +8,12 @@
 #define MAX_SIZE_OF_COMMAND 512
 char command[MAX_SIZE_OF_COMMAND];
 
+char *inbuilt_commands[] = {
+    "cd",
+    "ls",
+    "pwd",
+};
+
 int main() 
 {
     
