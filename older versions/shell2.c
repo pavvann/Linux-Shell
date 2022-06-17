@@ -14,6 +14,8 @@ int main()
     while (1)
     {
         printf("this is the prompt message-> ");
+        // scanf("\n");
+        // scanf("%[^\n]s", command);
         fgets(command, MAX_SIZE_OF_COMMAND,stdin);
         if (!strcmp(command,"exit"))
         {
