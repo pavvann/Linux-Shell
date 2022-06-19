@@ -16,17 +16,18 @@ char *inbuilt_commands[] = {
 
 int main() 
 {
-    
     while (1)
     {
+        
         printf("this is the prompt message-> ");
-        fgets(command, MAX_SIZE_OF_COMMAND,stdin);
+        scanf("\n");
+        scanf("%[^\n]s", command);
         if (!strcmp(command,"exit"))
         {
             exit(1);
         }
         
-        printf("%s", command);
+        printf("%s\n", command);
     }
     
 }
