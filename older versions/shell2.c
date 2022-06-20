@@ -20,7 +20,6 @@ int main()
         {
             exit(1);
         }
-        
         printf("%s", command);
     }
     
