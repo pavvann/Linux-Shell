@@ -27,7 +27,6 @@ int main()
         {
             exit(1);
         }
-        
         printf("%s\n", command);
     }
     
