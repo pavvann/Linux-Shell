@@ -18,8 +18,9 @@ int main()
 {
     while (1)
     {
-        
+        printf("\033[0;32m");
         printf("this is the prompt message-> ");
+        printf("\033[0m");
         scanf("\n");
         scanf("%[^\n]s", command);
         if (!strcmp(command,"exit"))
