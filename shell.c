@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-
+// setting max input buffer size
 #define MAX_SIZE_OF_COMMAND 512
 char command[MAX_SIZE_OF_COMMAND];
 
@@ -18,6 +18,9 @@ int main()
 {
     while (1)
     {
+        // setting the entire buffer to NULL
+        memset(command, '\0', MAX_SIZE_OF_COMMAND);
+        // changing the color for prompt message
         printf("\033[0;32m");
         printf("this is the prompt message-> ");
         printf("\033[0m");
