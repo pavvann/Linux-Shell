@@ -7,7 +7,7 @@ Simple Linux shell.
 
 * C
 
-## Usage
+## To Run the program:
 
 Compile shell.c from Linux terminal
 
