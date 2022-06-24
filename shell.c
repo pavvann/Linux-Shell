@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-// setting max input buffer size
+// setting max input buffer
 #define MAX_SIZE_OF_COMMAND 512
 char command[MAX_SIZE_OF_COMMAND];
 
@@ -26,6 +26,7 @@ int main()
         printf("\033[0m");
         scanf("\n");
         scanf("%[^\n]s", command);
+        // exit if command is "exit"
         if (!strcmp(command,"exit"))
         {
             exit(1);
