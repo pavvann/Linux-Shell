@@ -4,22 +4,36 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+static char* currentDirectory;
+
 // setting max input buffer
 #define MAX_SIZE_OF_COMMAND 512
 char command[MAX_SIZE_OF_COMMAND];
 
-int main() 
+void shellPrompt(){
+	// We print the prompt in the form "<user>@<host> <cwd> >"
+	char hostn[1204] = "";
+	gethostname(hostn, sizeof(hostn));
+    // changing the color for prompt message
+    printf("\033[0;32m");
+	printf("%s@%s %s > ", getenv("LOGNAME"), hostn, getcwd(currentDirectory, 1024));
+    printf("\033[0m");
+}
+
+int main(int argc, char const *argv[], char **environ)
 {
     while (1)
     {
+        // setting environment variable for the child
+        setenv("shell",getcwd(currentDirectory, 1024),1);
+        
         // setting the entire buffer to NULL
         memset(command, '\0', MAX_SIZE_OF_COMMAND);
-        // changing the color for prompt message
-        printf("\033[0;32m");
-        printf("this is the prompt message-> ");
-        printf("\033[0m");
+
+        shellPrompt();
         scanf("\n");
         scanf("%[^\n]s", command);
+        
         // exit if command is "exit"
         if (!strcmp(command,"exit"))
         {
