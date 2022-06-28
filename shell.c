@@ -9,6 +9,7 @@ static char* currentDirectory;
 // setting max input buffer
 #define MAX_SIZE_OF_COMMAND 512
 char command[MAX_SIZE_OF_COMMAND];
+char *separate_commands[MAX_SIZE_OF_COMMAND];
 
 void welcome()
 {
@@ -33,6 +34,22 @@ void shellPrompt(){
     printf("\033[0m");
 }
 
+void input()
+{
+    int i = 0;
+    char *split = " & ";
+    scanf("\n");
+    scanf("%[^\n]s", command);
+    separate_commands[i] = strtok(command, "&");
+    while (separate_commands[i] != NULL)
+    {
+        strtok(NULL, " ");
+        printf("%s\n", separate_commands[i]);
+        i++;
+        separate_commands[i] = strtok(NULL, "&");
+    }   
+}
+
 int main(int argc, char const *argv[], char **environ)
 {
     welcome();
@@ -45,15 +62,13 @@ int main(int argc, char const *argv[], char **environ)
         memset(command, '\0', MAX_SIZE_OF_COMMAND);
 
         shellPrompt();
-        scanf("\n");
-        scanf("%[^\n]s", command);
-        
-        // exit if command is "exit"
-        if (!strcmp(command,"exit"))
-        {
-            exit(1);
-        }
-        printf("%s\n", command);
+        input();
+        // // exit if command is "exit"
+        // if (!strcmp(command,"exit"))
+        // {
+        //     exit(1);
+        // }
+        // printf("%s\n", separate_commands[0]);
     }
     
 }
