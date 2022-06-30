@@ -63,11 +63,11 @@ int main(int argc, char const *argv[], char **environ)
 
         shellPrompt();
         input();
-        // // exit if command is "exit"
-        // if (!strcmp(command,"exit"))
-        // {
-        //     exit(1);
-        // }
+        // exit if command is "exit"
+        if (!strcmp(command,"exit"))
+        {
+            exit(1);
+        }
         // printf("%s\n", separate_commands[0]);
     }
     
