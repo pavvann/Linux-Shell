@@ -43,7 +43,6 @@ void input()
     separate_commands[i] = strtok(command, "&");
     while (separate_commands[i] != NULL)
     {
-        strtok(NULL, " ");
         printf("%s\n", separate_commands[i]);
         i++;
         separate_commands[i] = strtok(NULL, "&");
