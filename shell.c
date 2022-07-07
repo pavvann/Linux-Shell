@@ -14,6 +14,7 @@ int total_commands = 0;
 
 void welcome()
 {
+    printf("\n\nwelcome %s\n", getenv("USER"));
     printf("\n\n\t-----------------------------------------\n");
     printf("\t|---------------------------------------|\n");
     printf("\t|--------------Linux Shell--------------|\n");
@@ -95,7 +96,6 @@ int main(int argc, char const *argv[], char **environ)
         input();
         parse();
         // exit if command is "exit"
-        
         // printf("%s\n", separate_commands[0]);
     }
     
