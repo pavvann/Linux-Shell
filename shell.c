@@ -10,6 +10,7 @@ static char* currentDirectory;
 #define MAX_SIZE_OF_COMMAND 512
 char command[MAX_SIZE_OF_COMMAND];
 char *separate_commands[MAX_SIZE_OF_COMMAND];
+int total_commands = 0;
 
 void welcome()
 {
@@ -24,6 +25,11 @@ void welcome()
 
 }
 
+void info()
+{
+    printf("\nthis is a linux shell made by Pawan Bajaj\n\ncurrently working commands: cd, help\n\nfor contact, email: pawanbaja2012@gmail.com\n\n:)\n\n");
+}
+
 void shellPrompt(){
 	// We print the prompt in the form "<user>@<host> <cwd> >"
 	char hostn[1204] = "";
@@ -36,25 +42,43 @@ void shellPrompt(){
 
 void input()
 {
-    int i = 0;
+    
     char *split = " & ";
     scanf("\n");
     scanf("%[^\n]s", command);
-    separate_commands[i] = strtok(command, "&");
-    while (separate_commands[i] != NULL)
+    separate_commands[total_commands] = strtok(command, "&");
+    while (separate_commands[total_commands] != NULL)
     {
-        printf("%s\n", separate_commands[i]);
-        i++;
-        separate_commands[i] = strtok(NULL, "&");
+        // printf("%s\n", separate_commands[total_commands]);
+        total_commands++;
+        separate_commands[total_commands] = strtok(NULL, "&");
     }   
 }
 
 void parse()
 {
-    if (!strcmp(separate_commands[0], "cd"))
+    // cd returns to the home directory
+    if (strcmp(separate_commands[0], "cd") == 0)
     {
         chdir(getenv("HOME"));
     }
+    // for basic info
+    else if (strcmp(separate_commands[0], "help") == 0)
+    {
+        info();
+    }
+    // exit if command is "exit"
+    else if (!strcmp(separate_commands[0],"exit"))
+    {
+        exit(1);
+    }
+    // for invalid commands
+    else {
+        printf("\033[0;33m");
+        printf("command invalid {%s}\n", separate_commands[0]);
+        printf("\033[0m");
+    }
+
     
 }
 
@@ -73,10 +97,7 @@ int main(int argc, char const *argv[], char **environ)
         input();
         parse();
         // exit if command is "exit"
-        if (!strcmp(command,"exit"))
-        {
-            exit(1);
-        }
+        
         // printf("%s\n", separate_commands[0]);
     }
     
