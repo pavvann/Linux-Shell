@@ -49,6 +49,15 @@ void input()
     }   
 }
 
+void parse()
+{
+    if (!strcmp(separate_commands[0], "cd"))
+    {
+        chdir(getenv("HOME"));
+    }
+    
+}
+
 int main(int argc, char const *argv[], char **environ)
 {
     welcome();
@@ -62,6 +71,7 @@ int main(int argc, char const *argv[], char **environ)
 
         shellPrompt();
         input();
+        parse();
         // exit if command is "exit"
         if (!strcmp(command,"exit"))
         {
