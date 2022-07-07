@@ -9,15 +9,9 @@ Simple Linux shell.
 
 ## currently working commands:
 
-```
-cd
-```
-```
-help
-```
-```
-exit
-```
+* cd
+* help
+* exit
 
 
 ## To Run the program:
