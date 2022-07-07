@@ -22,6 +22,11 @@ Compile shell.c from Linux terminal
 $ gcc shell.c -o shell
 ```
 
+or for better compilation,
+```
+$ gcc -Wall -Wextra -O2 -g -o shell shell.c
+```
+
 Execute the program
 
 ```
