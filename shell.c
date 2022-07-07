@@ -42,8 +42,6 @@ void shellPrompt(){
 
 void input()
 {
-    
-    char *split = " & ";
     scanf("\n");
     scanf("%[^\n]s", command);
     separate_commands[total_commands] = strtok(command, "&");
