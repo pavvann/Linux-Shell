@@ -7,6 +7,19 @@ Simple Linux shell.
 
 * C
 
+## currently working commands:
+
+```
+cd
+```
+```
+help
+```
+```
+exit
+```
+
+
 ## To Run the program:
 
 Compile shell.c from Linux terminal
