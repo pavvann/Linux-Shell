@@ -10,8 +10,12 @@ Simple Linux shell.
 ## currently working commands:
 
 * cd
+* touch <file_name>
+* rm <file_name>
+* ls
 * help
 * exit
+
 
 
 ## To Run the program:
