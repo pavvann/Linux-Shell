@@ -123,14 +123,30 @@ void parse()
         // creating a new file 
         else if (!strcmp(int_cmd[i], "touch")) 
         {
-            FILE *f1;
-            f1 = fopen(int_cmd[1], "w");
-            return;
+            // error if file is not specified
+            if (int_cmd[1] == NULL)
+            {
+                printf("\033[0;33m");
+                printf("specify file name\n");
+                printf("\033[0m");
+            }
+            else {
+                FILE *f1;
+                f1 = fopen(int_cmd[1], "w");
+                return;
+            }
         }
         else if (!strcmp(int_cmd[i], "rm")) 
         {
+            // error if file is not specified
+            if (int_cmd[1] == NULL)
+            {
+                printf("\033[0;33m");
+                printf("specify file name\n");
+                printf("\033[0m");
+            }
             // if file gets deleted
-            if(!remove(int_cmd[1]))
+            else if(!remove(int_cmd[1]))
             {
                 printf("%s deleted successfully\n", int_cmd[1]);
             }
