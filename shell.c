@@ -81,14 +81,16 @@ void parse()
         {
             if (int_cmd[1] != NULL)
             {
+                // if ".." used with cd, go back to previous directory
                 if (!strcmp(int_cmd[1], ".."))
                 {
                     chdir(getenv("OLDPWD"));
                 }
+                // change directory
                 else
                     chdir(int_cmd[1]);
             }
-            
+            // if only cd is the command, go back to home directory
             else
                 chdir(getenv("HOME"));
             break;
@@ -104,7 +106,7 @@ void parse()
         {
             exit(1);
         }
-        
+        // list of directories
         else if (!strcmp(int_cmd[i], "ls")) 
         {
             DIR *d;
@@ -118,6 +120,7 @@ void parse()
                 closedir(d);
             }
         }
+        // creating a new file 
         else if (!strcmp(int_cmd[i], "touch")) 
         {
             FILE *f1;
@@ -126,10 +129,12 @@ void parse()
         }
         else if (!strcmp(int_cmd[i], "rm")) 
         {
+            // if file gets deleted
             if(!remove(int_cmd[1]))
             {
                 printf("%s deleted successfully\n", int_cmd[1]);
             }
+            // if the file does not exist
             else {
                 printf("\033[0;33m");
                 printf("file {%s} doesn't exist\n", int_cmd[1]);
