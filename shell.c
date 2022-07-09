@@ -183,8 +183,7 @@ int main(int argc, char const *argv[], char **environ)
         shellPrompt();
         input();
         parse();
-        // exit if command is "exit"
-        // printf("%s\n", separate_commands[0]);
+
     }
     
 }
