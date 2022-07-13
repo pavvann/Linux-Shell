@@ -88,7 +88,18 @@ void parse()
                 }
                 // change directory
                 else
-                    chdir(int_cmd[1]);
+                {
+                    int k = 0;
+                    char *path[50];
+                    path[k] = strtok(int_cmd[1], "/");
+                    while(path[k] != NULL)
+                    { 
+                        chdir(path[k]);
+                        k++;
+                        path[k] = strtok(NULL, "/");
+                        
+                    }
+                }
             }
             // if only cd is the command, go back to home directory
             else
