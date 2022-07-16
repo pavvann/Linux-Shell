@@ -180,7 +180,7 @@ void parse()
     
 }
 
-int main(int argc, char const *argv[], char **environ)
+int main()
 {
     welcome();
     while (1)
