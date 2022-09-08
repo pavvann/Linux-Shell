@@ -1,6 +1,6 @@
 # Linux Shell in C
 
-Simple Linux shell.
+Simple Linux shell implemented in C.
 
 
 ## Built With
