@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 #include <dirent.h> 
 
-static char* currentDirectory;
+static char* currentDirectory; 
 
 // setting max input buffer
 #define MAX_SIZE_OF_COMMAND 512
@@ -16,7 +16,7 @@ int total_commands = 0;
 
 void welcome()
 {
-    printf("\n\nwelcome %s\n", getenv("USER"));
+    // printf("\n\nwelcome %s\n", getenv("USER")); 
     printf("\n\n\t-----------------------------------------\n");
     printf("\t|---------------------------------------|\n");
     printf("\t|--------------Linux Shell--------------|\n");
@@ -31,7 +31,7 @@ void welcome()
 
 void info()
 {
-    printf("\nthis is a linux shell made by Pawan Bajaj\n\ncurrently working commands: cd, help, touch, ls, rm\n\nfor contact, email: pawanbaja2012@gmail.com\n\n:)\n\n");
+    printf("\nthis is a linux shell made by Pawan Bajaj\n\ncurrently working commands: cd, help, touch, ls, rm\n\nfor contact, email: pawanbajaj2012@gmail.com\n\n:)\n\n");
 }
 
 void shellPrompt(){
@@ -187,7 +187,6 @@ int main()
     {
         // setting environment variable for the child
         setenv("shell",getcwd(currentDirectory, 1024),1);
-        
         // setting the entire buffer to NULL
         memset(command, '\0', MAX_SIZE_OF_COMMAND);
 
